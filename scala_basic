@@ -103,5 +103,42 @@ cv.director.name
 inception.copy().copy().copy()
 
 //2nd example
+//2nd example
+/*
+Augment the Counter from the previous exercise to allow the user
+can optionally pass an Int parameter to inc and dec. If the parameter 
+is omitted it should default to 1
+*/
 
-new 
+class Adder(amount: Int) {
+  def add(in: Int) = in + amount
+}
+
+new Adder(10)
+
+class Counter(counter: Int=1){
+  val count = counter
+  def inc:Counter = inc()
+  def dec:Counter = dec()
+  def inc(amount: Int=1):Counter = new Counter(count+amount)
+  def dec(amount: Int=1):Counter = new Counter(count-amount)
+  
+  def adjust(i: Adder):Counter = new Counter(i.add(count))
+}
+//new Counter(10).inc.inc(10).count
+//new Counter(10).inc().inc(10).count
+new Counter(10).inc.inc(10).count
+
+
+class Subraction(amount: Int){
+  def apply(in: Int) = amount-in
+}
+
+val one = new Subraction(10)
+one.apply(8)
+one(8)
+
+
+object Square{
+  def apply(in: Int) = in*in
+}
