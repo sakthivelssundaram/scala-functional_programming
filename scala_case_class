@@ -94,4 +94,20 @@ Counter(10).inc().inc(10).counter
 new Counter(10).inc.inc(10).counter
 
 //*******************************************************************
+case class Person(firstName: String, lastName: String) {
+  def name = firstName + " " + lastName
+}
 
+object Person{
+  def apply(name: String) = {
+    val firstName = name.split(" ")(0)
+    val lastName = name.split(" ")(1)
+    new Person(firstName, lastName)
+  }
+}
+
+val check = Person("John Dow")
+val check1 = Person("John", "Dow")
+check.toString
+check1.toString
+//*********************************************************************************
